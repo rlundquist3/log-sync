@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    ".CodeMirror": [
+      {
+        "label": "Toggle log-sync",
+        "command": "log-sync:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Plugins",
+      "submenu": [
+        {
+          "label": "log-sync",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "log-sync:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
