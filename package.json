@@ -9,5 +9,15 @@
   "engines": {
     "inkdrop": "^5.3.1"
   },
-  "dependencies": {}
+  "scripts": {
+    "build": "rm -rf lib && rollup -c --bundleConfigAsCjs",
+    "watch": "rollup -c --watch --bundleConfigAsCjs"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.3",
+    "@babel/preset-react": "^7.24.1",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "rollup": "^4.13.2"
+  }
 }

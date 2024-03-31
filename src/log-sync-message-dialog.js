@@ -1,5 +1,3 @@
-"use babel";
-
 import React, { useEffect, useCallback } from "react";
 import { logger, useModal } from "inkdrop";
 

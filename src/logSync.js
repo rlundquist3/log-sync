@@ -1,7 +1,6 @@
-"use babel";
 import { parseNotes } from "./parseNotes";
 
-const logSync = async () => {
+export const logSync = async () => {
   console.log("Initialized");
 
   const db = inkdrop.main.dataStore.getLocalDB();
@@ -14,8 +13,4 @@ const logSync = async () => {
 
   const parsedNotes = parseNotes(notesWithSends.docs);
   console.log("parsed", parsedNotes);
-};
-
-module.exports = {
-  logSync,
 };

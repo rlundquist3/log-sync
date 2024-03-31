@@ -1,6 +1,6 @@
 const gradeRegEx = /(5\.\d+[a-d]|V\d+)/;
 
-const parseNotes = async (notes) =>
+export const parseNotes = async (notes) =>
   notes
     .map((note) => {
       const sendsSection = note.body.split(/\*\*noteworthy sends:\*\*/i)[1];
@@ -23,7 +23,3 @@ const parseNotes = async (notes) =>
     })
     .filter((s) => !!s)
     .flat();
-
-module.exports = {
-  parseNotes,
-};
