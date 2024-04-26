@@ -20,8 +20,8 @@ export const syncWithDatabase = async (climbs) => {
     grade,
     type: !!grade.match(/V\d+/) ? "boulder" : "sport",
     sendDate,
+    source: "inkdrop",
   }));
-  console.log(input);
 
   const { data } = await client.mutation(createClimbsMutation, { input });
   console.log(
