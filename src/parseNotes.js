@@ -14,6 +14,7 @@ export const parseNotes = (notes) =>
           return {
             name: s.replace(`, ${grade}`, "").trim(),
             grade,
+            sendDate: new Date(note.createdAt),
           };
         });
       }

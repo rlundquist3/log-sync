@@ -1,9 +1,5 @@
-import { Client, fetchExchange, gql } from "@urql/core";
-
-const client = new Client({
-  url: "https://climb-log-api.vercel.app/graphql",
-  exchanges: [fetchExchange],
-});
+import { client } from "./urqlClient";
+import { gql } from "@urql/core";
 
 const createClimbsMutation = gql`
   mutation CreateClimbs($input: [ClimbCreateInput!]!) {
@@ -19,11 +15,13 @@ const createClimbsMutation = gql`
 `;
 
 export const syncWithDatabase = async (climbs) => {
-  const input = climbs.map(({ name, grade }) => ({
+  const input = climbs.map(({ name, grade, sendDate }) => ({
     name,
     grade,
     type: !!grade.match(/V\d+/) ? "boulder" : "sport",
+    sendDate,
   }));
+  console.log(input);
 
   const { data } = await client.mutation(createClimbsMutation, { input });
   console.log(

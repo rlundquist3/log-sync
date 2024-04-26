@@ -1,22 +1,18 @@
 {
-  "context-menu": {
-    ".CodeMirror": [
-      {
-        "label": "Toggle log-sync",
-        "command": "log-sync:toggle"
-      }
-    ]
-  },
   "menu": [
     {
       "label": "Plugins",
       "submenu": [
         {
-          "label": "log-sync",
+          "label": "Climb Log",
           "submenu": [
             {
-              "label": "Toggle",
-              "command": "log-sync:toggle"
+              "label": "Sync",
+              "command": "climb-log:sync"
+            },
+            {
+              "label": "Clear and Restore",
+              "command": "climb-log:clear-and-restore"
             }
           ]
         }

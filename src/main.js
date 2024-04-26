@@ -1,15 +1,21 @@
-import LogSyncMessageDialog from "./log-sync-message-dialog";
 import { logSync } from "./logSync";
+import { clearDatabase } from "./clearDatabase";
 
 module.exports = {
   activate() {
-    // inkdrop.components.registerClass(LogSyncMessageDialog);
-    // inkdrop.layouts.addComponentToLayout("modal", "LogSyncMessageDialog");
+    inkdrop.commands.add(document.body, "climb-log:sync", logSync);
+    inkdrop.commands.add(
+      document.body,
+      "climb-log:clear-and-restore",
+      async () => {
+        await clearDatabase();
+        await logSync();
+      }
+    );
+
+    inkdrop.menu.update();
     logSync();
   },
 
-  deactivate() {
-    // inkdrop.layouts.removeComponentFromLayout("modal", "LogSyncMessageDialog");
-    // inkdrop.components.deleteClass(LogSyncMessageDialog);
-  },
+  deactivate() {},
 };
